@@ -23,7 +23,13 @@
   var getUserMove = function(player) {
     console.log("Player " + playerArr[player])
     prompt.get(['Move'], function (err, result) {
-      drawboard(result.Move, player);
+      if (result.Move >= 1 && result.Move <= 9) {
+        drawboard(result.Move, player);
+      } else {
+        console.log("invalid move");
+        getUserMove(player);
+      }
+      
 
     });
   }
